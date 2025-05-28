@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UH Factory Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CONTROLE DE RUNAS</h1>
+
+    <label><input type="checkbox" id="soundToggle" checked> Ativar som</label>
+
+    <div id="factory-controls">
+        <!-- Runador 1 -->
+        <div class="worker" id="worker1">
+            <h2>Runador 1</h2>
+            <label>Nome: <input type="text" id="name1" placeholder="Nome do char"></label><br>
+            <label>Mana Inicial: <input type="number" id="manaStart1" min="0" max="999" value="0"></label><br>
+            <label><input type="checkbox" id="promo1"> Promovido</label><br>
+            <label>Produzir: 
+                <select id="mode1">
+                    <option value="uh-100">1 UH (100 mana)</option>
+                    <option value="uh-200">2 UHs (200 mana)</option>
+                    <option value="hmm-70">1 HMM (70 mana)</option>
+                    <option value="hmm-140">2 HMMs (140 mana)</option>
+                    <option value="gfb-120">1 GFB (120 mana)</option>
+                    <option value="gfb-240">2 GFBs (240 mana)</option>
+                    <option value="sd-220">1 SD (220 mana)</option>
+                    <option value="sd-440">2 SDs (440 mana)</option>
+                </select>
+            </label><br>
+            <button onclick="toggleWorker(1)">Ligar/Desligar</button>
+            <div>Mana atual: <span id="manaDisplay1">0</span></div>
+            <div>Tempo até magia: <span id="timer1">--:--</span></div>
+            <button onclick="executeSpell(1)">Magia Feita!</button>
+        </div>
+
+        <!-- Runador 2 -->
+        <div class="worker" id="worker2">
+            <h2>Runador 2</h2>
+            <label>Nome: <input type="text" id="name2" placeholder="Nome do char"></label><br>
+            <label>Mana Inicial: <input type="number" id="manaStart2" min="0" max="999" value="0"></label><br>
+            <label><input type="checkbox" id="promo2"> Promovido</label><br>
+            <label>Produzir: 
+                <select id="mode2">
+                    <option value="uh-100">1 UH (100 mana)</option>
+                    <option value="uh-200">2 UHs (200 mana)</option>
+                    <option value="hmm-70">1 HMM (70 mana)</option>
+                    <option value="hmm-140">2 HMMs (140 mana)</option>
+                    <option value="gfb-120">1 GFB (120 mana)</option>
+                    <option value="gfb-240">2 GFBs (240 mana)</option>
+                    <option value="sd-220">1 SD (220 mana)</option>
+                    <option value="sd-440">2 SDs (440 mana)</option>
+                </select>
+            </label><br>
+            <button onclick="toggleWorker(2)">Ligar/Desligar</button>
+            <div>Mana atual: <span id="manaDisplay2">0</span></div>
+            <div>Tempo até magia: <span id="timer2">--:--</span></div>
+            <button onclick="executeSpell(2)">Magia Feita!</button>
+        </div>
+
+        <!-- Runador 3 -->
+        <div class="worker" id="worker3">
+            <h2>Runador 3</h2>
+            <label>Nome: <input type="text" id="name3" placeholder="Nome do char"></label><br>
+            <label>Mana Inicial: <input type="number" id="manaStart3" min="0" max="999" value="0"></label><br>
+            <label><input type="checkbox" id="promo3"> Promovido</label><br>
+            <label>Produzir: 
+                <select id="mode3">
+                    <option value="uh-100">1 UH (100 mana)</option>
+                    <option value="uh-200">2 UHs (200 mana)</option>
+                    <option value="hmm-70">1 HMM (70 mana)</option>
+                    <option value="hmm-140">2 HMMs (140 mana)</option>
+                    <option value="gfb-120">1 GFB (120 mana)</option>
+                    <option value="gfb-240">2 GFBs (240 mana)</option>
+                    <option value="sd-220">1 SD (220 mana)</option>
+                    <option value="sd-440">2 SDs (440 mana)</option>
+                </select>
+            </label><br>
+            <button onclick="toggleWorker(3)">Ligar/Desligar</button>
+            <div>Mana atual: <span id="manaDisplay3">0</span></div>
+            <div>Tempo até magia: <span id="timer3">--:--</span></div>
+            <button onclick="executeSpell(3)">Magia Feita!</button>
+        </div>
+    </div>
+
+    <div id="status">
+        <h2>Status da Sessão</h2>
+        <p id="bpCount">Backpacks completas: 0</p>
+        <p id="uhCount">UH atual na BP: 0/20</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
