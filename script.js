@@ -36,7 +36,6 @@ function toggleWorker(id) {
         worker.timer = setInterval(() => {
             updateMana(worker, id);
         }, 500);
-
         worker.active = true;
     } else {
         clearInterval(worker.timer);
@@ -63,17 +62,12 @@ function updateMana(worker, id) {
 
     if (worker.mana >= manaNeeded) {
         if (!worker.ready) {
-            // Primeiro ciclo onde ficou pronto
             alertBox.innerText = `🔥 ${name} pronto para fazer magia!`;
-            if (document.getElementById('soundToggle').checked) {
-                const audio = new Audio('https://www.soundjay.com/buttons/sounds/beep-07.mp3');
-                audio.play();
-            }
-            alert(`🧙‍♂️ ${name} está pronto para fazer magia!`);
+            playAlert();
+            popup(`🧙‍♂️ ${name} está pronto para fazer magia!`);
             worker.ready = true;
         }
     } else {
-        // Se não está pronto, limpa alerta
         alertBox.innerText = "";
         worker.ready = false;
     }
@@ -135,8 +129,13 @@ function updateStatus() {
 
 function popup(message) {
     alert(message);
+    playAlert();
+}
+
+function playAlert() {
     if (document.getElementById('soundToggle').checked) {
-        const audio = new Audio('https://www.soundjay.com/buttons/sounds/beep-07.mp3');
+        const audio = document.getElementById('alertSound');
+        audio.currentTime = 0;
         audio.play();
     }
 }
